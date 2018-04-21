@@ -1,4 +1,6 @@
-﻿Shader "SabreCSG/ShapeEditorLine"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "SabreCSG/ShapeEditorLine"
 {
 	SubShader
 	{
@@ -38,7 +40,7 @@
 					o.color = saturate(color);
 					// compute texture coordinates
 					// transform position
-					o.pos = mul(UNITY_MATRIX_MVP, float4(IN.pos,1));
+					o.pos = UnityObjectToClipPos(float4(IN.pos,1));
 					return o;
 				}
 
